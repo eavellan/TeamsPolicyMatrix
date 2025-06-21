@@ -49,8 +49,8 @@ This script supports customizable grouping of Teams policies using a dictionary:
 ```
     
  ## 🔧 Modify or extend freely
- ✅ Want to group all security-related policies under a new section? Easy.
- ✅ Want to rename “Calling” to “VoiceInfra”? Just change the key.
+ ✅ Want to group all security-related policies under a new section? Easy.<br>
+ ✅ Want to rename “Calling” to “VoiceInfra”? Just change the key.<br>
 
 You're in control.
 
@@ -65,10 +65,9 @@ You're in control.
 
 ## 💡 Why This Matters
 This tool isn’t just about data — it’s about presentation-ready insights:
-✅ Save time onboarding clients.
-✅ Surface security blind spots early.
-✅ Visualize config drift across tenants.
-
+✅ Save time onboarding clients.<br>
+✅ Surface security blind spots early.<br>
+✅ Visualize config drift across tenants.<br>
 ## ✍️ Credits
 Created by: Edgar Avellan
 ## 🎯 Ideas, feedback, or contributions welcome — this project is built to evolve.
