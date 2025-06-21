@@ -37,8 +37,9 @@ cd TeamsPolicyMatrix
 You'll be prompted to enter your tenant domain (e.g., contoso.com).
 
 ## 🧩 Advanced Feature: Category Mapping
-  ```powershell
 This script supports customizable grouping of Teams policies using a dictionary:
+ 
+  ```powershell
       $policyCategoryMap = @{
           Messaging = @('TeamsMessagingPolicy', 'TeamsChannelsPolicy')
           Meetings  = @('TeamsMeetingPolicy', 'TeamsMeetingBroadcastPolicy')
