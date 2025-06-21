@@ -25,7 +25,7 @@ This PowerShell script collects, categorizes, and summarizes Microsoft Teams pol
 Clone this repo and run the script:
 
 ```powershell
-git clone https://github.com/your-username/TeamsPolicyMatrix.git
+git clone https://github.com/eavellan/TeamsPolicyMatrix.git
 cd TeamsPolicyMatrix
 .\Invoke-TeamsPolicyMatrix.ps1
 ```
