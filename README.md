@@ -2,7 +2,7 @@
 
 Automate the discovery, organization, and export of Microsoft Teams policies into a clean CSV matrix — ready for audits, onboarding, or cross-tenant analysis.
 
-Built for visibility. Built for scale. Built by [Edgar Avellan](https://github.com/your-profile).
+Built for visibility. Built for scale. Built by [Edgar Avellan](https://github.com/eavellan).
 
 ---
 
