@@ -22,7 +22,7 @@ CSV stored at: .\Exports\Step2_TeamsPolicyMatrix_*.csv
 
 Optional console preview
 
-📸 Preview
+## 📸 Preview
 
-🙌 Author
+## 🙌 Author
 Edgar Avellan — Automation Enthusiast | Microsoft Defender SME | Dad
