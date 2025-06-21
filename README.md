@@ -24,49 +24,55 @@ Built for visibility. Built for scale. Built by [Edgar Avellan](https://github.c
    ```powershell
    Install-Module -Name PowerShellGet -Force -AllowClobber
    Install-Module -Name MicrosoftTeams -Force -AllowClobber
+🚀 Getting Started
 Clone this repo and run the script:
+
+powershell
+Copy
+Edit
 git clone https://github.com/your-username/TeamsPolicyMatrix.git
 cd TeamsPolicyMatrix
 .\Invoke-TeamsPolicyMatrix.ps1
-Follow the prompt to enter your tenant domain.
+You'll be prompted to enter your tenant domain (e.g., contoso.com).
 
 🧩 Advanced Feature: Category Mapping
-The script supports functional grouping of policies using a customizable dictionary:
+This script supports customizable grouping of Teams policies using a dictionary:
 
 powershell
 Copy
 Edit
 $policyCategoryMap = @{
-    Messaging   = @('TeamsMessagingPolicy', 'TeamsChannelsPolicy')
-    Meetings    = @('TeamsMeetingPolicy', 'TeamsMeetingBroadcastPolicy')
-    Calling     = @('TeamsCallingPolicy', 'OnlineVoiceRoutingPolicy')
-    Devices     = @('TeamsIPPhonePolicy', 'TeamsRoomsVideoTeleConferencingPolicy')
-    Security    = @('TeamsEnhancedEncryptionPolicy', 'TeamsFeedbackPolicy')
-    # Add or move policy types freely here
+    Messaging = @('TeamsMessagingPolicy', 'TeamsChannelsPolicy')
+    Meetings  = @('TeamsMeetingPolicy', 'TeamsMeetingBroadcastPolicy')
+    Calling   = @('TeamsCallingPolicy', 'OnlineVoiceRoutingPolicy')
+    Devices   = @('TeamsIPPhonePolicy', 'TeamsRoomsVideoTeleConferencingPolicy')
+    Security  = @('TeamsEnhancedEncryptionPolicy', 'TeamsFeedbackPolicy')
+    # 🔧 Modify or extend freely
 }
-Want to group all security-related policies under a new section? Easy.
-Want to rename “Calling” to “VoiceInfra”? Just change the key.
+✅ Want to group all security-related policies under a new section? Easy.
+✅ Want to rename “Calling” to “VoiceInfra”? Just change the key.
 
-You control the mapping.
+You're in control.
 
-📁 Output
-Step1_Teams_PolicyFields.csv → Raw list of policy properties
+📁 Output Files
+Step1_Teams_PolicyFields.csv
+→ Raw list of policy properties retrieved
 
-Step2_TeamsPolicyMatrix_YYYYMMDD_HHmmss.csv → Sorted matrix by policy usage
+Step2_TeamsPolicyMatrix_YYYYMMDD_HHmmss.csv
+→ Sorted matrix of policy names by category and usage count
 
-Optionally displayed in PowerShell grid (on-screen)
+(Optional) Displayed live on screen in an interactive PowerShell grid
 
-💡 Why It Matters
-This script is not just for data dumps — it’s for presentations, audits, and proactive governance.
+💡 Why This Matters
+This tool isn’t just about data — it’s about presentation-ready insights:
 
-By grouping policies meaningfully and giving yourself a single-pane export, you:
+✅ Save time onboarding clients
 
-Save time onboarding new clients
+✅ Surface security blind spots early
 
-Get ahead of security blind spots
+✅ Visualize config drift across tenants
 
-Visualize configuration drift
+✍️ Credits
+Created by: Edgar Avellan
+🎯 Ideas, feedback, or contributions welcome — this project is built to evolve.
 
-✍️ Credit
-Created by Edgar Avellan
-Ideas, feedback, and contributions welcome — this is meant to grow.
