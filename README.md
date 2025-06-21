@@ -43,10 +43,10 @@ $policyCategoryMap = @{
     Calling   = @('TeamsCallingPolicy', 'OnlineVoiceRoutingPolicy')
     Devices   = @('TeamsIPPhonePolicy', 'TeamsRoomsVideoTeleConferencingPolicy')
     Security  = @('TeamsEnhancedEncryptionPolicy', 'TeamsFeedbackPolicy')
-    # 🔧 Modify or extend freely
-}
-   ✅ Want to group all security-related policies under a new section? Easy.
-   ✅ Want to rename “Calling” to “VoiceInfra”? Just change the key.
+    
+ ## 🔧 Modify or extend freely
+ ✅ Want to group all security-related policies under a new section? Easy.
+ ✅ Want to rename “Calling” to “VoiceInfra”? Just change the key.
 
 You're in control.
 
@@ -61,7 +61,6 @@ You're in control.
 
 ## 💡 Why This Matters
 This tool isn’t just about data — it’s about presentation-ready insights:
-
 ✅ Save time onboarding clients
 ✅ Surface security blind spots early
 ✅ Visualize config drift across tenants
