@@ -15,43 +15,46 @@
 
 `teams_policy_matrix_v_4.ps1` is a menu-based PowerShell script that connects to Microsoft Teams, categorizes all available policies, and lets you:
 
-- Display policy summaries by category and type
-- Drill down into specific policy objects
-- Compare **custom policies** to **global defaults**
-- Export a clean CSV matrix for documentation
-- Learn and teach through working automation
+- Display policy summaries by category and type  
+- Drill down into specific policy objects  
+- Compare **custom policies** to **global defaults**  
+- Export a clean CSV matrix for documentation  
+- Learn and teach through working automation  
 
 ---
 
 ## ✨ Features
 
-| ✅ Feature | Description |
-|-----------|-------------|
-| 📂 **Policy Explorer** | Drill into Teams policies by functional category |
-| 🔍 **Type-Level Deep Dive** | See all policies under a specific policy type |
-| 📊 **Summary by Scope** | View whether a policy is `Custom (Tag:)` or `Global` |
-| 🧪 **Compare to Global** | Optionally compare each custom policy to Global baseline |
-| 📁 **CSV Export** | Save a clean Teams Policy Matrix as a .csv snapshot |
+| ✅ Feature              | Description                                                   |
+|------------------------|---------------------------------------------------------------|
+| 📂 **Policy Explorer** | Drill into Teams policies by functional category              |
+| 🔍 **Type-Level Deep Dive** | See all policies under a specific policy type           |
+| 📊 **Summary by Scope** | View whether a policy is `Custom (Tag:)` or `Global`         |
+| 🧪 **Compare to Global** | Optionally compare each custom policy to Global baseline    |
+| 📁 **CSV Export**       | Save a clean Teams Policy Matrix as a .csv snapshot           |
 | 🔐 **Connection Detection** | Automatically detects or initiates Teams PowerShell login |
-| 🧭 **Interactive Menu** | Navigate options with clean prompts and friendly UX |
+| 🧭 **Interactive Menu** | Navigate options with clean prompts and friendly UX           |
 
 ---
 
 ## 📁 File Structure
 
+```
 📂 TeamsPolicyMatrix
 ├── teams_policy_matrix_v_4.ps1
 ├── Exports
-│ └── TeamsPolicySummary.csv
+│   └── TeamsPolicySummary.csv
 ├── README.md
+```
 
+---
 
 ## 🏁 Getting Started
 
 ### 🔧 Prerequisites
 
-- Windows PowerShell 5.1+ or PowerShell Core 7+
-- Microsoft Teams PowerShell Module
+- Windows PowerShell 5.1+ or PowerShell Core 7+  
+- Microsoft Teams PowerShell Module  
 
 Install it if needed:
 
@@ -59,50 +62,62 @@ Install it if needed:
 Install-Module -Name MicrosoftTeams -Scope CurrentUser
 ```
 
-🚀 Run the Script
-powershell
-Copy
-Edit
-.\teams_policy_matrix_v_4.ps1
+### 🚀 Run the Script
+
+```powershell
+.	eams_policy_matrix_v_4.ps1
+```
+
 The script will auto-detect your session and prompt for login if needed.
 
-🧬 Why I Built This
+---
+
+## 🧬 Why I Built This
+
 As a Microsoft 365 and cybersecurity specialist, I needed a flexible way to:
 
-Audit policy differences across tenants
+- Audit policy differences across tenants  
+- Practice Microsoft Teams automation using PowerShell  
+- Document policy posture with exports  
+- Share learnings through GitHub, LinkedIn, and personal projects  
 
-Practice Microsoft Teams automation using PowerShell
+This is more than a script — it’s part of my **Learn & Build** challenge to upskill and give back.
 
-Document policy posture with exports
+---
 
-Share learnings through GitHub, LinkedIn, and personal projects
+## 📸 Screenshots (Optional)
 
-This is more than a script — it’s part of my Learn & Build challenge to upskill and give back.
+> _(Add GIFs or static images here for the Main Menu, Policy Drilldown, CSV Export message, etc.)_
 
-📸 Screenshots (Optional)
-(Add GIFs or static images here for the Main Menu, Policy Drilldown, CSV Export message, etc.)
+---
 
-📤 Share the Journey
-This is part of my public learning challenge.
+## 📤 Share the Journey
 
-🔗 Connect with me on LinkedIn
+This is part of my **public learning challenge**.
 
-🌟 Star the repo if it helps you
+- 🔗 [Connect with me on LinkedIn](https://www.linkedin.com/in/your-profile/)  
+- 🌟 Star the repo if it helps you  
+- 🍴 Fork and remix it for your team  
 
-🍴 Fork and remix it for your team
+---
 
-🔮 What’s Next?
-⏳ Graph API version (for more control)
+## 🔮 What’s Next?
 
-💻 GUI version (WinForms or PowerShell WPF)
+- ⏳ Graph API version (for more control)  
+- 💻 GUI version (WinForms or PowerShell WPF)  
+- 📧 Daily scheduled reporting via email  
+- 🧠 DSC & Intune integration (CI/CD security policies)  
 
-📧 Daily scheduled reporting via email
+---
 
-🧠 DSC & Intune integration (CI/CD security policies)
+## 📜 License
 
-📜 License
-MIT License — open for learning, remixing, and improving.
-If you build on it, tag me — I’d love to see what you do.
+**MIT License** — open for learning, remixing, and improving.  
+_If you build on it, tag me — I’d love to see what you do._
 
-🙌 Acknowledgments
-Thanks to everyone helping others level up in the Microsoft ecosystem. This is my way of doing the same.
+---
+
+## 🙌 Acknowledgments
+
+Thanks to everyone helping others level up in the Microsoft ecosystem.  
+This is my way of doing the same.
