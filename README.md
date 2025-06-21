@@ -55,13 +55,13 @@ This script supports customizable grouping of Teams policies using a dictionary:
 You're in control.
 
 ## 📁 Output Files
-   Step1_Teams_PolicyFields.csv
-→ Raw list of policy properties retrieved
-
-   Step2_TeamsPolicyMatrix_YYYYMMDD_HHmmss.csv
-→ Sorted matrix of policy names by category and usage count
-
-(Optional) Displayed live on screen in an interactive PowerShell grid
+      Step1_Teams_PolicyFields.csv
+   → Raw list of policy properties retrieved
+   
+      Step2_TeamsPolicyMatrix_YYYYMMDD_HHmmss.csv
+   → Sorted matrix of policy names by category and usage count
+   
+   (Optional) Displayed live on screen in an interactive PowerShell grid
 
 ## 💡 Why This Matters
 This tool isn’t just about data — it’s about presentation-ready insights:
