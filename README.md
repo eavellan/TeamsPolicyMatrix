@@ -37,10 +37,6 @@ You'll be prompted to enter your tenant domain (e.g., contoso.com).
 
 🧩 Advanced Feature: Category Mapping
 This script supports customizable grouping of Teams policies using a dictionary:
-
-powershell
-Copy
-Edit
 $policyCategoryMap = @{
     Messaging = @('TeamsMessagingPolicy', 'TeamsChannelsPolicy')
     Meetings  = @('TeamsMeetingPolicy', 'TeamsMeetingBroadcastPolicy')
@@ -49,8 +45,8 @@ $policyCategoryMap = @{
     Security  = @('TeamsEnhancedEncryptionPolicy', 'TeamsFeedbackPolicy')
     # 🔧 Modify or extend freely
 }
-✅ Want to group all security-related policies under a new section? Easy.
-✅ Want to rename “Calling” to “VoiceInfra”? Just change the key.
+      ✅ Want to group all security-related policies under a new section? Easy.
+      ✅ Want to rename “Calling” to “VoiceInfra”? Just change the key.
 
 You're in control.
 
@@ -66,11 +62,11 @@ Step2_TeamsPolicyMatrix_YYYYMMDD_HHmmss.csv
 💡 Why This Matters
 This tool isn’t just about data — it’s about presentation-ready insights:
 
-✅ Save time onboarding clients
-
-✅ Surface security blind spots early
-
-✅ Visualize config drift across tenants
+      ✅ Save time onboarding clients
+      
+      ✅ Surface security blind spots early
+      
+      ✅ Visualize config drift across tenants
 
 ✍️ Credits
 Created by: Edgar Avellan
