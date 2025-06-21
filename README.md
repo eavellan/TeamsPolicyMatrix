@@ -1,74 +1,84 @@
-# 🧠 TeamsPolicyMatrix
+# Teams Policy Matrix Export Tool
 
-Automate the discovery, organization, and export of Microsoft Teams policies into a clean CSV matrix — ready for audits, onboarding, or cross-tenant analysis.
+This PowerShell script collects, categorizes, and summarizes Microsoft Teams policy assignments from your tenant, offering flexible display and export options.
 
-Built for visibility. Built for scale. Built by [Edgar Avellan](https://github.com/eavellan).
+## Features
 
----
+- Categorizes Teams policies by functional group (e.g., Calling, Messaging, Security)
+- Identifies each policy as "System" or "Custom" (based on naming convention: policies beginning with "Tag:" are treated as custom)
+- Interactive output options:
+  - Display in console
+  - Export to CSV
+  - Both
+  - Skip summary
+- Total count of policies per category
+- Auto-detects if Teams PowerShell session is already active
 
-## ⚡ What It Does
+## Requirements
 
-✅ Connects to Microsoft Teams via PowerShell  
-✅ Inventories all Teams-related policies (Messaging, Calling, Meeting, etc.)  
-✅ Transforms them into a matrix-style report  
-✅ Optionally categorizes policies by **functional group** (e.g., Meetings, Security, Devices)  
-✅ Exports as timestamped `.csv`  
-✅ Displays report in the terminal with aligned columns
+- PowerShell 5.1 or later
+- Microsoft Teams PowerShell Module (`Install-Module MicrosoftTeams`)
+- Sign in using `Connect-MicrosoftTeams` (the script will prompt if not already connected)
 
----
+## Usage
 
-## 📦 Usage
-
-1. Install the [Teams PowerShell Module](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install):
-
-   ```powershell
-   Install-Module -Name PowerShellGet -Force -AllowClobber
-   Install-Module -Name MicrosoftTeams -Force -AllowClobber
-
-## 🚀 Getting Started
 Clone this repo and run the script:
 
-powershell
-Copy
-Edit
+```powershell
 git clone https://github.com/your-username/TeamsPolicyMatrix.git
 cd TeamsPolicyMatrix
 .\Invoke-TeamsPolicyMatrix.ps1
-You'll be prompted to enter your tenant domain (e.g., contoso.com).
-
-## 🧩 Advanced Feature: Category Mapping
-This script supports customizable grouping of Teams policies using a dictionary:
- 
-  ```powershell
-      $policyCategoryMap = @{
-          Messaging = @('TeamsMessagingPolicy', 'TeamsChannelsPolicy')
-          Meetings  = @('TeamsMeetingPolicy', 'TeamsMeetingBroadcastPolicy')
-          Calling   = @('TeamsCallingPolicy', 'OnlineVoiceRoutingPolicy')
-          Devices   = @('TeamsIPPhonePolicy', 'TeamsRoomsVideoTeleConferencingPolicy')
-          Security  = @('TeamsEnhancedEncryptionPolicy', 'TeamsFeedbackPolicy')
 ```
-    
- ## 🔧 Modify or extend freely
- ✅ Want to group all security-related policies under a new section? Easy.<br>
- ✅ Want to rename “Calling” to “VoiceInfra”? Just change the key.<br>
 
-You're in control.
+You'll be prompted:
 
-## 📁 Output Files
-      Step1_Teams_PolicyFields.csv
-   → Raw list of policy properties retrieved
-   
-      Step2_TeamsPolicyMatrix_YYYYMMDD_HHmmss.csv
-   → Sorted matrix of policy names by category and usage count
-   
-   (Optional) Displayed live on screen in an interactive PowerShell grid
+```
+✅ Connected to Microsoft Teams.
+Enter a known email domain (e.g., contoso.com): sitesnsupport.com
+Preparing a policy snapshot for: sitesnsupport.com
 
-## 💡 Why This Matters
-This tool isn’t just about data — it’s about presentation-ready insights:
-✅ Save time onboarding clients.<br>
-✅ Surface security blind spots early.<br>
-✅ Visualize config drift across tenants.<br>
-## ✍️ Credits
-Created by: Edgar Avellan
-🎯 Ideas, feedback, or contributions welcome — this project is built to evolve.
+What would you like to do?
+1. Display the policy summary on screen
+2. Export the policy summary to CSV
+3. Do both
+4. Skip this summary
+```
 
+If you select Display (option 1), the summary will include:
+
+- Functional category (e.g., Meetings, Calling, Messaging)
+- Sub-policy types and their assignments
+- Each assignment labeled [System] or [Custom]
+- A total count of policies per category
+
+If you select Export (option 2 or 3), a CSV will be created at:
+
+```
+C:\Exports_Lab\Teams\Exports\Step3_TeamsPolicyCategorySummary.csv
+```
+
+## Output Example
+
+```text
+Category: Meetings (Total Policies: 6)
+  • TeamsMeetingPolicy
+     - Global                             [System]
+     - Tag:AllOn                          [Custom]
+     - Tag:RestrictedAnonymousAccess      [Custom]
+     - Tag:AllOff                         [Custom]
+     - Tag:RestrictedAnonymousNoRecording [Custom]
+     - Tag:Kiosk                          [Custom]
+```
+
+## Contribution
+
+Feel free to fork the repo and submit pull requests.
+
+Created by [Sites N Support](https://sitesnsupport.com)  
+Contact: edgar@sitesnsupport.com
+
+## Roadmap
+
+- Add ability to diff between current and prior policy states
+- HTML or Markdown output formatting
+- Graph API integration
