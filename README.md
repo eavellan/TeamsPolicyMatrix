@@ -95,7 +95,7 @@ This is more than a script — it’s part of my **Learn & Build** challenge to 
 
 This is part of my **public learning challenge**.
 
-- 🔗 [Connect with me on LinkedIn](https://www.linkedin.com/in/eavellan/)  
+- 🔗 [Connect with me on LinkedIn](https://www.linkedin.com/in/edgaravellan/)  
 - 🌟 Star the repo if it helps you  
 - 🍴 Fork and remix it for your team  
 
