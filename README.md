@@ -39,3 +39,70 @@
 
 ## 📁 File Structure
 
+📂 TeamsPolicyMatrix
+├── teams_policy_matrix_v_4.ps1
+├── Exports
+│ └── TeamsPolicySummary.csv
+├── README.md
+
+
+## 🏁 Getting Started
+
+### 🔧 Prerequisites
+
+- Windows PowerShell 5.1+ or PowerShell Core 7+
+- Microsoft Teams PowerShell Module
+
+Install it if needed:
+
+```powershell
+Install-Module -Name MicrosoftTeams -Scope CurrentUser
+```
+
+🚀 Run the Script
+powershell
+Copy
+Edit
+.\teams_policy_matrix_v_4.ps1
+The script will auto-detect your session and prompt for login if needed.
+
+🧬 Why I Built This
+As a Microsoft 365 and cybersecurity specialist, I needed a flexible way to:
+
+Audit policy differences across tenants
+
+Practice Microsoft Teams automation using PowerShell
+
+Document policy posture with exports
+
+Share learnings through GitHub, LinkedIn, and personal projects
+
+This is more than a script — it’s part of my Learn & Build challenge to upskill and give back.
+
+📸 Screenshots (Optional)
+(Add GIFs or static images here for the Main Menu, Policy Drilldown, CSV Export message, etc.)
+
+📤 Share the Journey
+This is part of my public learning challenge.
+
+🔗 Connect with me on LinkedIn
+
+🌟 Star the repo if it helps you
+
+🍴 Fork and remix it for your team
+
+🔮 What’s Next?
+⏳ Graph API version (for more control)
+
+💻 GUI version (WinForms or PowerShell WPF)
+
+📧 Daily scheduled reporting via email
+
+🧠 DSC & Intune integration (CI/CD security policies)
+
+📜 License
+MIT License — open for learning, remixing, and improving.
+If you build on it, tag me — I’d love to see what you do.
+
+🙌 Acknowledgments
+Thanks to everyone helping others level up in the Microsoft ecosystem. This is my way of doing the same.
