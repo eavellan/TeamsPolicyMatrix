@@ -24,7 +24,8 @@ Built for visibility. Built for scale. Built by [Edgar Avellan](https://github.c
    ```powershell
    Install-Module -Name PowerShellGet -Force -AllowClobber
    Install-Module -Name MicrosoftTeams -Force -AllowClobber
-🚀 Getting Started
+
+## 🚀 Getting Started
 Clone this repo and run the script:
 
 powershell
@@ -36,6 +37,7 @@ cd TeamsPolicyMatrix
 You'll be prompted to enter your tenant domain (e.g., contoso.com).
 
 ## 🧩 Advanced Feature: Category Mapping
+  ```powershell
 This script supports customizable grouping of Teams policies using a dictionary:
       $policyCategoryMap = @{
           Messaging = @('TeamsMessagingPolicy', 'TeamsChannelsPolicy')
@@ -43,6 +45,7 @@ This script supports customizable grouping of Teams policies using a dictionary:
           Calling   = @('TeamsCallingPolicy', 'OnlineVoiceRoutingPolicy')
           Devices   = @('TeamsIPPhonePolicy', 'TeamsRoomsVideoTeleConferencingPolicy')
           Security  = @('TeamsEnhancedEncryptionPolicy', 'TeamsFeedbackPolicy')
+```
     
  ## 🔧 Modify or extend freely
  ✅ Want to group all security-related policies under a new section? Easy.
