@@ -14,5 +14,15 @@ PowerShell script to generate a CSV matrix of all Microsoft Teams policies acros
 
 1. Install the [Teams PowerShell Module](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install)
 2. Run the script:
-```powershell
+``powershell
 .\Invoke-TeamsPolicyMatrix.ps1
+
+## 📁 Output
+CSV stored at: .\Exports\Step2_TeamsPolicyMatrix_*.csv
+
+Optional console preview
+
+📸 Preview
+
+🙌 Author
+Edgar Avellan — Automation Enthusiast | Microsoft Defender SME | Dad
