@@ -128,6 +128,7 @@ function Export-PolicySummary {
 # ===========================
 # STEP 5: Primary Prompt
 # ===========================
+<
 Write-Host " What would you like to do?" -ForegroundColor Cyan
 Write-Host "1. Display the policy summary on screen"
 Write-Host "2. Export the policy summary to CSV"
