@@ -37,12 +37,12 @@ You'll be prompted to enter your tenant domain (e.g., contoso.com).
 
 ## 🧩 Advanced Feature: Category Mapping
 This script supports customizable grouping of Teams policies using a dictionary:
-   $policyCategoryMap = @{
-       Messaging = @('TeamsMessagingPolicy', 'TeamsChannelsPolicy')
-       Meetings  = @('TeamsMeetingPolicy', 'TeamsMeetingBroadcastPolicy')
-       Calling   = @('TeamsCallingPolicy', 'OnlineVoiceRoutingPolicy')
-       Devices   = @('TeamsIPPhonePolicy', 'TeamsRoomsVideoTeleConferencingPolicy')
-       Security  = @('TeamsEnhancedEncryptionPolicy', 'TeamsFeedbackPolicy')
+      $policyCategoryMap = @{
+          Messaging = @('TeamsMessagingPolicy', 'TeamsChannelsPolicy')
+          Meetings  = @('TeamsMeetingPolicy', 'TeamsMeetingBroadcastPolicy')
+          Calling   = @('TeamsCallingPolicy', 'OnlineVoiceRoutingPolicy')
+          Devices   = @('TeamsIPPhonePolicy', 'TeamsRoomsVideoTeleConferencingPolicy')
+          Security  = @('TeamsEnhancedEncryptionPolicy', 'TeamsFeedbackPolicy')
     
  ## 🔧 Modify or extend freely
  ✅ Want to group all security-related policies under a new section? Easy.
