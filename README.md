@@ -1,87 +1,41 @@
-📊 Teams Policy Matrix v4
-A PowerShell-based tool to explore, summarize, and analyze Microsoft Teams policies—built for IT admins, by an IT admin learning out loud.
+# 📊 Teams Policy Matrix v4
 
-👨‍💻 Author
-Edgar Avellan
-🚀 Automating my Teams knowledge journey, one script at a time.
+*A PowerShell-driven CLI tool to explore, analyze, and document Microsoft Teams policies — built by Edgar Avellan to showcase real-world M365 automation skills.*
 
-🧠 About This Script
-teams_policy_matrix_v_4.ps1 is a lightweight, menu-driven PowerShell utility that connects to Microsoft Teams via PowerShell and lets you:
+---
 
-✅ Display a policy summary grouped by functional categories (e.g., Calling, Messaging, Devices)
+## 👨‍💻 Author
 
-🔍 Explore policies by category and type, including custom vs. global policy comparisons
+**Edgar Avellan**  
+🚀 Learning, automating, and elevating my understanding of Microsoft Teams — one policy at a time.
 
-📁 Export a clean CSV snapshot of all retrieved policies
+---
 
-🧭 Navigate back and forth in an intuitive CLI experience
+## 🧠 What Is This?
 
-🔒 Gracefully handle authentication, missing cmdlets, and malformed objects
+`teams_policy_matrix_v_4.ps1` is a menu-based PowerShell script that connects to Microsoft Teams, categorizes all available policies, and lets you:
 
-🛠️ Features
-Feature	Description
-🎯 Policy Explorer	Browse categorized Teams policies and drill down by type
-🗂️ CSV Export	Output a policy matrix CSV for auditing or documentation
-💬 Interactive CLI	Step-by-step prompts to choose your path, with safe exits
-🔐 Session-Aware	Auto-detects if you're already connected to Microsoft Teams
-🧪 Experimental Scenarios	Designed to support future DSC, CI/CD and M365 security workflows
+- Display policy summaries by category and type
+- Drill down into specific policy objects
+- Compare **custom policies** to **global defaults**
+- Export a clean CSV matrix for documentation
+- Learn and teach through working automation
 
-🏁 Getting Started
-1. Requirements
-PowerShell 7+ (recommended)
+---
 
-Microsoft Teams PowerShell Module installed
-Install-Module -Name MicrosoftTeams -Scope CurrentUser
+## ✨ Features
 
-2. Clone this repo
-bash
-Copy
-Edit
-git clone https://github.com/YOURUSERNAME/teams-policy-matrix.git
-cd teams-policy-matrix
-3. Run the script
-powershell
-Copy
-Edit
-.\teams_policy_matrix_v_4.ps1
-🧬 Why I Built This
-I needed a way to:
+| ✅ Feature | Description |
+|-----------|-------------|
+| 📂 **Policy Explorer** | Drill into Teams policies by functional category |
+| 🔍 **Type-Level Deep Dive** | See all policies under a specific policy type |
+| 📊 **Summary by Scope** | View whether a policy is `Custom (Tag:)` or `Global` |
+| 🧪 **Compare to Global** | Optionally compare each custom policy to Global baseline |
+| 📁 **CSV Export** | Save a clean Teams Policy Matrix as a .csv snapshot |
+| 🔐 **Connection Detection** | Automatically detects or initiates Teams PowerShell login |
+| 🧭 **Interactive Menu** | Navigate options with clean prompts and friendly UX |
 
-Practice what I was learning in Microsoft Teams policy management
+---
 
-Showcase automation skills using PowerShell
+## 📁 File Structure
 
-Export repeatable documentation for Teams environments
-
-Help small IT shops (and myself) get clarity fast without bloated tools
-
-📷 Screenshots
-Include screenshots here showing:
-
-Main menu
-
-Policy categories with counts
-
-Policy drill-down
-
-CSV export confirmation
-
-📤 Share the Journey
-This is part of my personal learning challenge: build real tools while studying.
-
-👉 Follow me on LinkedIn
-👉 Star this repo if you find it helpful
-👉 Fork it to build your own matrix or integrate with Graph API next!
-
-🗃️ Future Ideas
-GUI version with WinForms or WPF
-
-Graph API integration
-
-Teams tenant diffing across environments
-
-Scheduled email report version
-
-🧾 License
-MIT — use, modify, or fork freely.
-Credit appreciated, especially if you're learning too. 💙
