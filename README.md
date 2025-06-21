@@ -70,5 +70,5 @@ This tool isn’t just about data — it’s about presentation-ready insights:
 ✅ Visualize config drift across tenants.<br>
 ## ✍️ Credits
 Created by: Edgar Avellan
-## 🎯 Ideas, feedback, or contributions welcome — this project is built to evolve.
+🎯 Ideas, feedback, or contributions welcome — this project is built to evolve.
 
