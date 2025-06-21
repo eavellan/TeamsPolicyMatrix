@@ -1,7 +1,5 @@
-
-
 # ===========================================
-# TEAMS POLICY MATRIX GENERATOR
+# TEAMS POLICY MATRIX GENERATOR (v4.0)
 # Author: Edgar Avellan
 # ===========================================
 
@@ -12,9 +10,9 @@ Write-Host @"
  _______                                      
 |__   __|                                     
    | | ___  _ __ ___  ___  ___ ___  ___ _ __  
-   | |/ _ \| '__/ _ \/ __|/ __/ _ \/ _ \ '_ \ 
+   | |/ _ \| '__/ _ \ __|/ __/ _ \ / _ \ '_ \ 
    | | (_) | | |  __/\__ \ (_|  __/  __/ | | |
-   |_|\___/|_|  \___||___/\___\___|\___|_| |_|
+   |_|\___/|_|  \___||___/\___\___|\___|_| |_| 
 
 Microsoft Teams Policy Matrix • by Edgar Avellan
 "@ -ForegroundColor Cyan
@@ -25,11 +23,10 @@ Write-Host "Welcome! Let's showcase how I learn, automate, and elevate teams." -
 # STEP 0: Check Microsoft Teams Connection
 # ===========================================
 try {
-    # Test if session is active
     Get-CsOnlineUser -ResultSize 1 -ErrorAction Stop | Out-Null
-    Write-Host "`✅ Teams PowerShell session is already active." -ForegroundColor Green
+    Write-Host "✅ Teams PowerShell session is already active." -ForegroundColor Green
 } catch {
-    Write-Host "`🔐 Connecting to Microsoft Teams..." -ForegroundColor Yellow
+    Write-Host "🔐 Connecting to Microsoft Teams..." -ForegroundColor Yellow
     try {
         Connect-MicrosoftTeams -ErrorAction Stop
         Write-Host "✅ Connected to Microsoft Teams." -ForegroundColor Green
@@ -38,13 +35,10 @@ try {
         exit
     }
 }
-# ===========================================
-# STEP 0: Ask user for domain
-# ===========================================
+
 $domainInput = Read-Host "Enter a known email domain (e.g., contoso.com)"
 Write-Host "Preparing a policy snapshot for: $domainInput" -ForegroundColor Cyan
 Start-Sleep -Seconds 2
-
 
 # ===========================
 # STEP 1: Category Definitions
@@ -78,35 +72,28 @@ foreach ($category in $policyCategoryMap.Keys) {
             foreach ($item in $results) {
                 $allPolicies += [PSCustomObject]@{
                     Category    = $category
-                    PolicyType  = $cmd.Replace('Get-Cs','')
+                    PolicyType  = $cmd
                     PolicyName  = $item.Identity
                     PolicyScope = if ($item.Identity -like "Tag:*") { 'Custom' } else { 'System' }
+                    Properties  = $item
                 }
             }
-        } catch {
-            # Skip any unsupported or failed cmdlets
-        }
+        } catch {}
     }
 }
 
-# ===========================
-# STEP 3: Display Function
-# ===========================
 function Show-PolicySummary {
     if ($allPolicies.Count -eq 0) {
         Write-Host " ⚠️  No policies were found to display." -ForegroundColor Red
         return
     }
-
     Write-Host " 📊 Policy Summary by Functional Category: " -ForegroundColor Cyan
-
     $allPolicies | Group-Object Category | Sort-Object Name | ForEach-Object {
         $cat = $_.Name
         $items = $_.Group
         Write-Host "Category: $cat (Total Policies: $($items.Count))" -ForegroundColor Yellow
-
         $items | Group-Object PolicyType | ForEach-Object {
-            Write-Host "  • $($_.Name)" -ForegroundColor DarkGray
+            Write-Host "  • $($_.Name)"
             foreach ($p in $_.Group) {
                 Write-Host ("     - {0} [{1}]" -f $p.PolicyName.PadRight(45), $p.PolicyScope)
             }
@@ -115,9 +102,6 @@ function Show-PolicySummary {
     }
 }
 
-# ===========================
-# STEP 4: Export Function
-# ===========================
 function Export-PolicySummary {
     $path = "$PSScriptRoot\Exports\TeamsPolicySummary.csv"
     $allPolicies | Select-Object Category, PolicyType, PolicyName, PolicyScope |
@@ -125,37 +109,84 @@ function Export-PolicySummary {
     Write-Host " ✅ Exported to: $path" -ForegroundColor Green
 }
 
-# ===========================
-# STEP 5: Primary Prompt
-# ===========================
-<
-Write-Host " What would you like to do?" -ForegroundColor Cyan
-Write-Host "1. Display the policy summary on screen"
-Write-Host "2. Export the policy summary to CSV"
-Write-Host "3. Do both"
-Write-Host "4. Skip this summary"
+function Prompt-CategorySelection {
+    Write-Host "📂 Available Policy Categories:" -ForegroundColor Cyan
+    $categories = $policyCategoryMap.Keys | Sort-Object
+    foreach ($cat in $categories) {
+        $count = ($allPolicies | Where-Object { $_.Category -eq $cat }).Count
+        Write-Host "$($categories.IndexOf($cat) + 1). $cat ($count)"
+    }
+    $selection = Read-Host "`nEnter the number of the category to explore (or 'b' to go back or 'q' to quit)"
+    if ($selection -eq 'q') { return }
+    if ($selection -eq 'b') { Show-MainMenu; return }
+    if ($selection -match '^\d+$' -and [int]$selection -le $categories.Count) {
+        $selectedCategory = $categories[[int]$selection - 1]
+        Show-PolicyTypesInCategory -Category $selectedCategory
+    } else {
+        Write-Host "❌ Invalid input." -ForegroundColor Red
+        Prompt-CategorySelection
+    }
+}
 
-$choice = Read-Host "Enter your choice (1-4)"
+function Show-PolicyTypesInCategory {
+    param([string]$Category)
+    $policyTypes = $policyCategoryMap[$Category]
+    Write-Host "`n📄 Policy Types under '$Category':" -ForegroundColor Yellow
+    for ($i = 0; $i -lt $policyTypes.Count; $i++) {
+        $type = $policyTypes[$i]
+        $count = ($allPolicies | Where-Object { $_.PolicyType -eq $type }).Count
+        Write-Host ("$($i + 1). $type ($count)")
+    }
+    $selection = Read-Host "`nEnter the number of the policy type to explore (or 'b' to go back)"
+    if ($selection -eq 'b') { Prompt-CategorySelection; return }
+    if ($selection -match '^\d+$' -and [int]$selection -le $policyTypes.Count) {
+        $selectedType = $policyTypes[[int]$selection - 1]
+        Show-PoliciesByType -PolicyType $selectedType
+    } else {
+        Write-Host "❌ Invalid input." -ForegroundColor Red
+        Show-PolicyTypesInCategory -Category $Category
+    }
+}
 
-switch ($choice) {
-    '1' {
-        Show-PolicySummary
-        # Prompt again after showing
-        Write-Host " Would you like to:"
-        Write-Host "1. Export the policy summary to CSV"
-        Write-Host "2. Exit"
-        $followup = Read-Host "Enter your choice (1-2)"
-        switch ($followup) {
-            '1' { Export-PolicySummary }
-            '2' { Write-Host " 👋 Done." -ForegroundColor Gray }
-            default { Write-Host "Invalid follow-up choice." -ForegroundColor Red }
+function Show-PoliciesByType {
+    param([string]$PolicyType)
+    $policies = $allPolicies | Where-Object { $_.PolicyType -eq $PolicyType }
+    Write-Host "\n🔍 Policies under '$PolicyType':" -ForegroundColor Cyan
+    if ($policies.Count -eq 0) {
+        Write-Host "⚠️ No policies found." -ForegroundColor Red
+    } else {
+        foreach ($p in $policies) {
+            Write-Host ("- {0} [{1}]" -f $p.PolicyName, $p.PolicyScope)
         }
     }
-    '2' { Export-PolicySummary }
-    '3' {
-        Show-PolicySummary
-        Export-PolicySummary
-    }
-    '4' { Write-Host " ⏭️  Skipping summary." -ForegroundColor DarkYellow }
-    default { Write-Host "Invalid selection." -ForegroundColor Red }
+    Read-Host "\nPress Enter to return"
+    Prompt-CategorySelection
 }
+
+function Show-MainMenu {
+    while ($true) {
+        Write-Host "`n💡 What would you like to do?" -ForegroundColor Cyan
+        Write-Host "1. Display the policy summary on screen"
+        Write-Host "2. Export the policy summary to CSV"
+        Write-Host "3. Do both"
+        Write-Host "4. Explore a policy category"
+        Write-Host "5. Exit the script"
+        $choice = Read-Host "Enter your choice (1-5)"
+        switch ($choice) {
+            '1' { Show-PolicySummary }
+            '2' { Export-PolicySummary }
+            '3' { Show-PolicySummary; Export-PolicySummary }
+            '4' { Prompt-CategorySelection }
+            '5' {
+                $confirm = Read-Host "Are you sure you want to exit? (y/n)"
+                if ($confirm -eq 'y') {
+                    Write-Host "👋 Exiting the session. Thank you!" -ForegroundColor Cyan
+                    exit
+                }
+            }
+            default { Write-Host "❌ Invalid selection." -ForegroundColor Red }
+        }
+    }
+}
+
+Show-MainMenu
