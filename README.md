@@ -25,10 +25,6 @@ Built for visibility. Built for scale. Built by [Edgar Avellan](https://github.c
    Install-Module -Name PowerShellGet -Force -AllowClobber
    Install-Module -Name MicrosoftTeams -Force -AllowClobber
 Clone this repo and run the script:
-
-powershell
-Copy
-Edit
 git clone https://github.com/your-username/TeamsPolicyMatrix.git
 cd TeamsPolicyMatrix
 .\Invoke-TeamsPolicyMatrix.ps1
