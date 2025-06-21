@@ -1,84 +1,87 @@
-# Teams Policy Matrix Export Tool
+📊 Teams Policy Matrix v4
+A PowerShell-based tool to explore, summarize, and analyze Microsoft Teams policies—built for IT admins, by an IT admin learning out loud.
 
-This PowerShell script collects, categorizes, and summarizes Microsoft Teams policy assignments from your tenant, offering flexible display and export options.
+👨‍💻 Author
+Edgar Avellan
+🚀 Automating my Teams knowledge journey, one script at a time.
 
-## Features
+🧠 About This Script
+teams_policy_matrix_v_4.ps1 is a lightweight, menu-driven PowerShell utility that connects to Microsoft Teams via PowerShell and lets you:
 
-- Categorizes Teams policies by functional group (e.g., Calling, Messaging, Security)
-- Identifies each policy as "System" or "Custom" (based on naming convention: policies beginning with "Tag:" are treated as custom)
-- Interactive output options:
-  - Display in console
-  - Export to CSV
-  - Both
-  - Skip summary
-- Total count of policies per category
-- Auto-detects if Teams PowerShell session is already active
+✅ Display a policy summary grouped by functional categories (e.g., Calling, Messaging, Devices)
 
-## Requirements
+🔍 Explore policies by category and type, including custom vs. global policy comparisons
 
-- PowerShell 5.1 or later
-- Microsoft Teams PowerShell Module (`Install-Module MicrosoftTeams`)
-- Sign in using `Connect-MicrosoftTeams` (the script will prompt if not already connected)
+📁 Export a clean CSV snapshot of all retrieved policies
 
-## Usage
+🧭 Navigate back and forth in an intuitive CLI experience
 
-Clone this repo and run the script:
+🔒 Gracefully handle authentication, missing cmdlets, and malformed objects
 
-```powershell
-git clone https://github.com/eavellan/TeamsPolicyMatrix.git
-cd TeamsPolicyMatrix
-.\Invoke-TeamsPolicyMatrix.ps1
-```
+🛠️ Features
+Feature	Description
+🎯 Policy Explorer	Browse categorized Teams policies and drill down by type
+🗂️ CSV Export	Output a policy matrix CSV for auditing or documentation
+💬 Interactive CLI	Step-by-step prompts to choose your path, with safe exits
+🔐 Session-Aware	Auto-detects if you're already connected to Microsoft Teams
+🧪 Experimental Scenarios	Designed to support future DSC, CI/CD and M365 security workflows
 
-You'll be prompted:
+🏁 Getting Started
+1. Requirements
+PowerShell 7+ (recommended)
 
-```
-✅ Connected to Microsoft Teams.
-Enter a known email domain (e.g., contoso.com): sitesnsupport.com
-Preparing a policy snapshot for: sitesnsupport.com
+Microsoft Teams PowerShell Module installed
+Install-Module -Name MicrosoftTeams -Scope CurrentUser
 
-What would you like to do?
-1. Display the policy summary on screen
-2. Export the policy summary to CSV
-3. Do both
-4. Skip this summary
-```
+2. Clone this repo
+bash
+Copy
+Edit
+git clone https://github.com/YOURUSERNAME/teams-policy-matrix.git
+cd teams-policy-matrix
+3. Run the script
+powershell
+Copy
+Edit
+.\teams_policy_matrix_v_4.ps1
+🧬 Why I Built This
+I needed a way to:
 
-If you select Display (option 1), the summary will include:
+Practice what I was learning in Microsoft Teams policy management
 
-- Functional category (e.g., Meetings, Calling, Messaging)
-- Sub-policy types and their assignments
-- Each assignment labeled [System] or [Custom]
-- A total count of policies per category
+Showcase automation skills using PowerShell
 
-If you select Export (option 2 or 3), a CSV will be created at:
+Export repeatable documentation for Teams environments
 
-```
-C:\Exports_Lab\Teams\Exports\Step3_TeamsPolicyCategorySummary.csv
-```
+Help small IT shops (and myself) get clarity fast without bloated tools
 
-## Output Example
+📷 Screenshots
+Include screenshots here showing:
 
-```text
-Category: Meetings (Total Policies: 6)
-  • TeamsMeetingPolicy
-     - Global                             [System]
-     - Tag:AllOn                          [Custom]
-     - Tag:RestrictedAnonymousAccess      [Custom]
-     - Tag:AllOff                         [Custom]
-     - Tag:RestrictedAnonymousNoRecording [Custom]
-     - Tag:Kiosk                          [Custom]
-```
+Main menu
 
-## Contribution
+Policy categories with counts
 
-Feel free to fork the repo and submit pull requests.
+Policy drill-down
 
-Created by [Sites N Support](https://sitesnsupport.com)  
-Contact: edgar@sitesnsupport.com
+CSV export confirmation
 
-## Roadmap
+📤 Share the Journey
+This is part of my personal learning challenge: build real tools while studying.
 
-- Add ability to diff between current and prior policy states
-- HTML or Markdown output formatting
-- Graph API integration
+👉 Follow me on LinkedIn
+👉 Star this repo if you find it helpful
+👉 Fork it to build your own matrix or integrate with Graph API next!
+
+🗃️ Future Ideas
+GUI version with WinForms or WPF
+
+Graph API integration
+
+Teams tenant diffing across environments
+
+Scheduled email report version
+
+🧾 License
+MIT — use, modify, or fork freely.
+Credit appreciated, especially if you're learning too. 💙
